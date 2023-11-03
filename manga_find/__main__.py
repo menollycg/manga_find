@@ -1,11 +1,14 @@
-""" this is the main for manga_find
+""" A Manga Discovery Tool
 
-This is a short description.
-
-This more details.
 """
 
-print("EIRK IS AWSOMET!!")
+import requests
 
 if __name__ == "__main__":
-    print("hello world")
+
+    response = requests.get("https://api.consumet.org/manga/mangadex/demon")
+
+    demon_manga = response.json()
+
+    for result in demon_manga["results"]:
+        print(result["title"])
